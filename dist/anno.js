@@ -1,10 +1,10 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("jQuery"));
+		module.exports = factory(require("jquery"));
 	else if(typeof define === 'function' && define.amd)
-		define(["jQuery"], factory);
+		define(["jquery"], factory);
 	else {
-		var a = typeof exports === 'object' ? factory(require("jQuery")) : factory(root["jQuery"]);
+		var a = typeof exports === 'object' ? factory(require("jquery")) : factory(root["jQuery"]);
 		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
 	}
 })(this, function(__WEBPACK_EXTERNAL_MODULE_1__) {
@@ -433,14 +433,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return (function(origbg) {
 	          return _this._undoEmphasise.push(function($t) {
 	            return $t.css({
-	              background: origbg
+				  background: origbg,
+				  "border-width": "0px"
 	            });
 	          });
 	        });
 	      })(this)(origbg);
 	      $target.css({
-	        background: 'white'
-	      });
+			background: 'rgba(56,142,60,0.5)',
+			"border-color": "#38863C",
+			"border-width":"1px",
+			"border-style":"solid"
+		  });
 	    }
 	    origzindex = $target.prop('style').zIndex;
 	    (function(_this) {
@@ -696,24 +700,32 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 
 	  AnnoButton.NextButton = new AnnoButton({
-	    text: 'Next',
+	    text: 'Weiter',
 	    click: function() {
 	      return this.switchToChainNext();
 	    }
 	  });
 
 	  AnnoButton.DoneButton = new AnnoButton({
-	    text: 'Done',
+		text: 'Überspringen',
+		className: 'anno-btn-high-importance',
 	    click: function() {
 	      return this.hide();
 	    }
 	  });
 
 	  AnnoButton.BackButton = new AnnoButton({
-	    text: 'Back',
+	    text: 'Zurück',
 	    className: 'anno-btn-low-importance',
 	    click: function() {
 	      return this.switchToChainPrev();
+	    }
+	  });
+
+	  AnnoButton.FinishButton = new AnnoButton({
+	    text: 'Fertig',
+	    click: function() {
+			return this.hide();
 	    }
 	  });
 
